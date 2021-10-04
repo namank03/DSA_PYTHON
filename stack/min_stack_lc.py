@@ -1,4 +1,5 @@
-# here the idea is to keep the track of minimum value, push it along with the actual value
+#
+# !here the idea is to keep the track of minimum value, push it along with the actual value.
 class MinStack:
     def __init__(self):
         self.stack = []
