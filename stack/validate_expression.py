@@ -11,10 +11,7 @@
 # 5. If the iteration is done and the stack is not empty - expression is not valid - print and exit the program
 # 6. else if the stack is empty - expression is not valid - print and exit the program
 
-import sys
 
-
-# expression = input("Enter the expression\n")
 def expression_test(expression):
     stack = []
     push_dict = {'[': 0, '{': 1, '(': 2}
