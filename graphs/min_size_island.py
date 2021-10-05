@@ -13,31 +13,35 @@ def exploreDepthFirst(graph, i, j, seen):
     rowInbound = 0 <= i < len(graph)
     colInbound = 0 <= j < len(graph[0])
     if not rowInbound or not colInbound:
-        return False
+        return 0
 
     if graph[i][j] == 'w':
-        return False
+        return 0
 
     if (i, j) in seen:
-        return False
+        return 0
 
     seen.add((i, j))
-    exploreDepthFirst(graph, i - 1, j, seen)
-    exploreDepthFirst(graph, i + 1, j, seen)
-    exploreDepthFirst(graph, i, j - 1, seen)
-    exploreDepthFirst(graph, i, j + 1, seen)
 
-    return True
+    size = 1
+    size += exploreDepthFirst(graph, i - 1, j, seen)
+    size += exploreDepthFirst(graph, i + 1, j, seen)
+    size += exploreDepthFirst(graph, i, j - 1, seen)
+    size += exploreDepthFirst(graph, i, j + 1, seen)
+
+    return size
 
 
 def islandCount(graph):
     seen = set()
-    count = 0
+    min_size = 100
     for i in range(len(graph)):
         for j in range(len(graph[0])):
-            count += exploreDepthFirst(graph, i, j, seen)
+            island_size = exploreDepthFirst(graph, i, j, seen)
+            if island_size < min_size and island_size != 0:
+                min_size = island_size
 
-    return count
+    return min_size
 
 
 print(islandCount(graph))
