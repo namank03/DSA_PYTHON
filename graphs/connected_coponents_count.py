@@ -2,9 +2,10 @@ graph = {1: [2], 2: [1], 4: [6], 5: [6], 7: [6], 8: [6], 6: [4, 5, 7, 8], 3: []}
 
 
 def traverse(graph, src, seen):
-    if src in seen:
+    # * TIP: Just to be consistent with the types always add string in the visited_set
+    if str(src) in seen:
         return False
-    seen.add(src)
+    seen.add(str(src))
     for neighbor in graph[src]:
         traverse(graph, neighbor, seen)
     return True
