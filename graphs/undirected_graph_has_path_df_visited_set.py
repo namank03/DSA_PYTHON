@@ -1,4 +1,4 @@
-from helper_edge_list_to_adjacency_list import create_adjacency_list
+from helper_edge_list_to_adjacency_list import createAdjacencyList
 
 edge_list = [['i', 'j'], ['k', 'i'], ['m', 'k'], ['k', 'l'], ['o', 'n']]
 
@@ -16,7 +16,7 @@ def hasPathDF(graph, src, dst, visited_set):
 
 
 def check_path(edge_list, node1, node2):
-    graph = create_adjacency_list(edge_list)
+    graph = createAdjacencyList(edge_list)
     return hasPathDF(graph, node1, node2, set())
 
 

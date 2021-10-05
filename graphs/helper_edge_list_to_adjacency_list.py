@@ -1,7 +1,7 @@
 # edge_list = [['i', 'j'], ['k', 'i'], ['m', 'k'], ['k', 'l'], ['o', 'n']]
 
 
-def create_adjacency_list(edge_list):
+def createAdjacencyList(edge_list):
     graph = {}
     for node1, node2 in edge_list:
         graph[node1] = graph.get(node1, [])
