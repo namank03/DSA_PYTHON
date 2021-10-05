@@ -1,19 +1,21 @@
-graph = {
-    'a': ['d'],
-    'd': ['k', 'f'],
-    'l': ['d'],
-    'f': ['o'],
-    'g': ['f'],
-    'o': ['n'],
-    'k': ['h', 'o'],
-    'h': [],
-    'n': [],
-}
-
-
 # * Here we are further optimizing the haspath with the seen array. If the node is traversed before and the path is not found, So there is no need to traverse the node again and we can safely move to the next neighour in line
+import snoop
 
 
+def cache(func):
+    d = {}
+
+    def wrapper(*args):
+        try:
+            return d[args]
+        except KeyError:
+            result = d[args] = func(*args)
+            return result
+
+    return wrapper
+
+
+@snoop
 def hasPathDF(graph, source, destination, seen):
     seen.add(source)
     # The below will serve as the base case
@@ -25,6 +27,19 @@ def hasPathDF(graph, source, destination, seen):
             return True
     else:
         return False
+
+
+graph = {
+    'a': ['d'],
+    'd': ['k', 'f'],
+    'l': ['d'],
+    'f': ['o'],
+    'g': ['f'],
+    'o': ['n'],
+    'k': ['h', 'o'],
+    'h': [],
+    'n': [],
+}
 
 
 print(hasPathDF(graph, 'a', 'f', set()))
