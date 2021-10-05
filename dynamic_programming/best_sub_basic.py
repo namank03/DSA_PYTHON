@@ -19,9 +19,9 @@ def bestSum(target, num_arr):
             combination = remainderResult
 
             # Logic to evaluate the shortestCombination possible. Notice we not returning early here. Even if we found the path. We're re-running the for-loop to evaluate all possible path and finally we're selecting the shortestCombination out of all
-            if shortestCombination is None:
-                shortestCombination = combination
-            if len(shortestCombination) > len(combination):
+            if shortestCombination is None or len(shortestCombination) > len(
+                combination
+            ):
                 shortestCombination = combination
 
     return shortestCombination
