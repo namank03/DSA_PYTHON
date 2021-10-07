@@ -1,6 +1,9 @@
 import copy
 
+import snoop
 
+
+@snoop
 def allSum(target, num_arr):
 
     if target < 0:
