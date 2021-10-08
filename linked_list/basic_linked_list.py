@@ -1,6 +1,3 @@
-from os import link
-
-
 class Node:
     def __init__(self, data):
         self.data = data
@@ -82,6 +79,8 @@ class LinkedList:
 
         previous.next = current.next
         current.next = None
+
+        self.size -= 1
 
     def __str__(self):
         return self.head.__str__()
