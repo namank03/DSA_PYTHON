@@ -1,8 +1,8 @@
-def knapSack(self, W, wt, val, n, memo={}):
+def knapSack(wt, val, W, n, memo={}):
     if (W, n) in memo.keys():
         return memo[(W, n)]
 
-    if n == 0:
+    if n == 0 or W == 0:
         return 0
 
     if W - wt[n-1] >= 0:
@@ -17,6 +17,6 @@ def knapSack(self, W, wt, val, n, memo={}):
 values = [1, 2, 3]
 weight = [4, 5, 6]
 
-W = 10
+W = 3
 
 print(knapSack(weight, values, W, 3))
