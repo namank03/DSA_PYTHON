@@ -34,5 +34,5 @@ def bestSum(target, num_arr, memo={}):
     return shortestCombination
 
 
-result = bestSum(7, [2, 4, 1, 3,7])
+result = bestSum(7, [2, 4, 1, 3, 7])
 print(result)
