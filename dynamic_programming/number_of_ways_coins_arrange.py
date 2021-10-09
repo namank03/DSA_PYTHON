@@ -14,4 +14,4 @@ def min_coins(target_sum, arr, memo={}):
     return memo[target_sum]
 
 
-print(min_coins(5, [2, 3]))
+print(min_coins(5, [2, 1]))

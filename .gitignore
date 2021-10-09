@@ -162,3 +162,5 @@ cython_debug/
 
 **/*test.py
 .DS_Store
+*.png
+*.gif

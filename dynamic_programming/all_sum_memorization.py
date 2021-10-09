@@ -33,5 +33,5 @@ def allSum(target, num_arr, memo={}):
     return allCombinations
 
 
-result = allSum(4, [3, 2, 1])
+result = allSum(7, [3, 1, 4])
 print(result)
