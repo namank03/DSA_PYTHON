@@ -18,6 +18,6 @@ def lp(s1: str, s2: str, memo={}):
     return memo[f"{s1},{s2}"]
 
 
-s = "namankhan"
+s = "aacabdkacaa"
 print(lp(s, s[::-1]))
 # vs.make_animation("lp.gif", delay=2)
