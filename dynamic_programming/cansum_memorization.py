@@ -21,5 +21,5 @@ def cansum(target, num_arr, memo={}):
     return False
 
 
-result = cansum(7, [3, 2])
+result = cansum(701, [9, 11])
 print(result)
