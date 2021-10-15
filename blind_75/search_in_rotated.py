@@ -4,7 +4,6 @@ def search_in_roteted_arr(nums, target):
     left, right = 0, len(nums) - 1
 
     while left < right:
-
         mid = (left + right) // 2
 
         # ! trick to check the pivot. if the element at mid position is greater than the element at right that means our array is rotated and the pivot is present to the right
