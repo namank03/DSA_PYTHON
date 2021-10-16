@@ -26,9 +26,14 @@ def longest_subarr_of_given_sum(arr, target_sum):
                 i += 1
 
             # Guard condition
+            # if running_sum == target_sum:
+                # running_sum -= arr[j]
+                # continue
+
+            # Alternative to above guard condition to check the potential answer while shrinking the window size.
             if running_sum == target_sum:
-                running_sum -= arr[j]
-                continue
+                print(arr[i:j+1])
+                max_window_size = max(j-i+1, max_window_size)
 
             j += 1
 
