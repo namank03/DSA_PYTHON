@@ -25,16 +25,21 @@ def max_sum_subarray(arr, n, k):
     target_sum = 0
     # guard condition to prevent window from overflowing
     while j < n:
-        # Making the window of size k. And at the same time we're evaluating the sum
-        while j < k:
-            target_sum += arr[j]
+        # Init cal
+        target_sum += arr[j]
+
+        # Making the window of size k.
+        if j-i+1 < k:
             j += 1
 
         # Now the window is formed and we can do our cal here.
-        max_sum = max(max_sum, target_sum)
-        target_sum += arr[j] - arr[i]
-        i += 1
-        j += 1
+        elif j-i+1 == k:
+            # Calculations
+            max_sum = max(max_sum, target_sum)
+            # Moving the window forward
+            target_sum -= arr[i]
+            i += 1
+            j += 1
 
     return max_sum
 

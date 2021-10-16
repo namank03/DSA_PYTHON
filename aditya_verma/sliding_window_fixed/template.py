@@ -25,15 +25,18 @@ def sliding_window_template(arr, n, k):
     current_window_result = 0
     # guard condition to prevent window from overflowing
     while j < n:
-        # Making the window of size k. And at the same time we're evaluating the sum
-        while j < k:
-            # Some Cal here
+        # Some Initial Cal here.
+
+        # Making the window of size k.
+        if j-i + 1 < k:
             j += 1
 
-        # Now the window is formed and we can do our cal here.
-        # Some other cal here
-        i += 1
-        j += 1
+        # Now the window is formed and we can do 2 things.
+        elif j-i+1 == k:
+            #! Some other cal here
+            #! Move the window
+            i += 1
+            j += 1
 
     return global_result
 
