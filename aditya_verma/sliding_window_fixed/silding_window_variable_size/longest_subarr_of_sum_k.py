@@ -10,24 +10,27 @@ def longest_subarr_of_given_sum(arr, target_sum):
 
         # increasing window size. pass will not fo through other else-if condition and will just inc j by 1.
         if running_sum < target_sum:
-            pass
+            j += 1
 
         # if the condition is hit then we do our calculations and save the window size.
         elif running_sum == target_sum:
+            print(arr[i:j+1])
             max_window_size = max(j-i+1, max_window_size)
+            j += 1
 
-        else:
-            # else we move i till the running sum becomes valid again.
+        # else we move i till the running sum becomes valid again.
+        elif running_sum > target_sum:
+
             while running_sum > target_sum:
                 running_sum -= arr[i]
                 i += 1
 
-            # this is the guard condition to not move j. if the condition is met again
+            # Guard condition
             if running_sum == target_sum:
                 running_sum -= arr[j]
                 continue
 
-        j += 1
+            j += 1
 
     return max_window_size
 
