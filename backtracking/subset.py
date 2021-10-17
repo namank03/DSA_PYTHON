@@ -1,23 +1,17 @@
 
-from visualiser.visualiser import Visualiser as vs
-
-result_list = []
-
-
-@vs(node_properties_kwargs={"shape": "record", "color": "#f57542", "style": "filled", "fillcolor": "grey"})
-def backtrack(tempList, nums):
+def backtrack(result_list, tempList, nums):
     result_list.append(tempList[:])
     for i in range(len(nums)):
         tempList.append(nums[i])
-        backtrack(tempList, nums[i+1:])
+        backtrack(result_list, tempList, nums[i+1:])
         tempList.pop()
 
 
 def subsets(nums):
+    result_list = []
     nums = sorted(nums)
-    backtrack([], nums)
+    backtrack(result_list, [], nums)
+    return result_list
 
 
 subsets([1, 2, 3])
-vs.make_animation("images/backtrack1.gif", delay=2)
-print(result_list)

@@ -4,7 +4,6 @@ from visualiser.visualiser import Visualiser as vs
 result_list = []
 
 
-@vs(node_properties_kwargs={"shape": "record", "color": "#f57542", "style": "filled", "fillcolor": "grey"})
 def backtrack(tempList, nums):
     if not nums:
         result_list.append(tempList[:])
@@ -20,5 +19,4 @@ def subsets(nums):
 
 
 subsets([1, 2, 3])
-vs.make_animation("images/backtrack2.gif", delay=2)
 print(result_list)
