@@ -1,3 +1,8 @@
+
+from visualiser.visualiser import Visualiser as vs
+
+
+@vs(node_properties_kwargs={"shape": "record", "color": "#f57542", "style": "filled", "fillcolor": "grey"})
 def bestSum(target, num_arr):
     if target < 0:
         return None
@@ -27,5 +32,6 @@ def bestSum(target, num_arr):
     return shortestCombination
 
 
-result = bestSum(7, [2, 4, 1, 3])
+result = bestSum(7, [7, 4, 3])
 print(result)
+vs.make_animation("images/best_sum.gif", delay=2)
