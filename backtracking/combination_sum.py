@@ -15,7 +15,7 @@ def backtrack(result_list, tempList, nums, target):
         # add condition here to make sure the current candidate is a valid candidate
         tempList.append(nums[i])
         # explore via dfs
-        backtrack(result_list, tempList, nums[i:], target - nums[i])
+        backtrack(result_list, tempList, nums[i+1:], target - nums[i])
         # remove the candidate
         tempList.pop()
 
@@ -23,9 +23,9 @@ def backtrack(result_list, tempList, nums, target):
 def combination_sum(nums, target):
     result_list = set()
     nums = sorted(nums)
-    backtrack(result_list, [], nums, target)
+    backtrack(result_list, [], tuple(nums), target)
     return result_list
 
 
-print(combination_sum([10, 1, 2, 7, 6, 1, 5], 8))
+print(combination_sum(tuple([2, 7, 6, 1, 5]), 8))
 vs.make_animation("images/comb_sum.gif", delay=2)

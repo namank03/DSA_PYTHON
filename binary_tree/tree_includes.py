@@ -39,13 +39,19 @@ def tree_include(root, target):
 # print(tree_include(a, r))
 
 
-def tree_include_rec(root, target):
-    if root is None:
-        return False
-    # Some other calculation for base cases. Ex - comparing the root val with the target val
-    if root.val == target.val:
-        return True
-    return tree_include_rec(root.left, target) or tree_include_rec(root.right, target)
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+
+    def tree_include_rec(self, root, target):
+        if root is None:
+            return False
+        # Some other calculation for base cases. Ex - comparing the root val with the target val
+        if root.val == target.val:
+            return True
+        return self.tree_include_rec(root.left, target) or self.tree_include_rec(root.right, target)
 
 
-print(tree_include_rec(a, e))
+# print(tree_include_rec(a, e))

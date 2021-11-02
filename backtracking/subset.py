@@ -1,9 +1,10 @@
 
 def backtrack(result_list, tempList, nums):
-    result_list.append(tempList[:])
+    if len(tempList[:]) == 3:
+        result_list.append(tempList[:])
     for i in range(len(nums)):
         tempList.append(nums[i])
-        backtrack(result_list, tempList, nums[i+1:])
+        backtrack(result_list, tempList, nums[:i] + nums[i+1:])
         tempList.pop()
 
 
@@ -14,4 +15,5 @@ def subsets(nums):
     return result_list
 
 
-subsets([1, 2, 3])
+res = subsets([1, 2, 3])
+print(f'res -> {res}')

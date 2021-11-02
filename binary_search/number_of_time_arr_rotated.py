@@ -5,10 +5,10 @@ def no_of_time_arr_rotated(arr):
     while start <= end:
         mid = (start + end) // 2
 
-        if arr[end] >= arr[mid]:
+        if arr[mid] >= arr[end]:
             end = mid - 1
 
-        elif arr[start] <= arr[mid]:
+        elif arr[mid] >= arr[start]:
             start = mid + 1
 
     return mid
