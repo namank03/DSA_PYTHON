@@ -1,31 +1,27 @@
-
-from visualiser.visualiser import Visualiser as vs
-
-
-@vs(node_properties_kwargs={"shape": "record", "color": "#f57542", "style": "filled", "fillcolor": "grey"})
 def backtrack(result_list, tempList, nums, target):
     # Add condition here to validate the state before adding it to the result list
     if target == 0:
-        result_list.add(tuple(tempList[:]))
+        print(f'tempList[:] -> {tempList[:]}')
+        result_list.append(tempList[:])
 
     if target < 0:
         return
 
     for i in range(len(nums)):
-        # add condition here to make sure the current candidate is a valid candidate
         tempList.append(nums[i])
-        # explore via dfs
-        backtrack(result_list, tempList, nums[i+1:], target - nums[i])
-        # remove the candidate
+        backtrack(result_list, tempList,  nums[i:], target - nums[i])
         tempList.pop()
 
 
 def combination_sum(nums, target):
-    result_list = set()
+    result_list = []
     nums = sorted(nums)
-    backtrack(result_list, [], tuple(nums), target)
+    backtrack(result_list, [], nums, target)
     return result_list
 
 
-print(combination_sum(tuple([2, 7, 6, 1, 5]), 8))
-vs.make_animation("images/comb_sum.gif", delay=2)
+a = [2, 1, 3, 4]
+t = 8
+
+res = combination_sum(a, t)
+print(f'res -> {res}')

@@ -13,4 +13,4 @@ for i in a:
 
 l += heap
 
-print(f'l -> {l}')
+# print(f'l -> {l}')
