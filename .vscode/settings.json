@@ -6,7 +6,7 @@
         "--max-line-length=120",
         "--ignore=E402,F841,F401,E302,E305,D100,D101,D107,D105,Q000,D103,D102,E800",
     ],
-    "python.formatting.provider": "autopep8",
+    "python.formatting.provider": "black",
     "cSpell.words": [
         "tempc"
     ],
