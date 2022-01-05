@@ -32,8 +32,8 @@ def get_path2(src, dst):
     for neighbor in graph[src]:
         res = get_path2(neighbor, dst)
         if res:
-            res += [src]
-        return res
+            #! early return
+            return res + [src]
 
 
 res = get_path2(src, dst)
