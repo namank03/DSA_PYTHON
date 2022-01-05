@@ -1,20 +1,11 @@
-from visualiser.visualiser import Visualiser as vs
-
-edge_list = [
-    (1, 0),
-    (1, 2),
-    (3, 4)
-]
+edge_list = [(1, 0), (1, 2), (3, 4)]
 
 
 def create_graph(edge_list):
     graph = {}
     for node1, node2 in edge_list:
-        graph[node1] = graph.get(node1, [])
-        graph[node1].append(node2)
-        graph[node2] = graph.get(node2, [])
-        graph[node2].append(node1)
-
+        graph.setdefault(node1, []).append(node2)
+        graph.setdefault(node2, []).append(node1)
     return graph
 
 
@@ -31,12 +22,7 @@ def explore(graph, node, seen):
 
     seen.add(node)
 
-    c = 1
-    for neighbor in graph[node]:
-        c += 1
-        explore(graph, neighbor, seen)
-
-    return c
+    return 1 + sum(explore(graph, neighbor, seen) for neighbor in graph[node])
 
 
 def connected_componet(graph):
