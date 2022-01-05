@@ -3,7 +3,7 @@ target = 8
 from functools import lru_cache
 
 
-def can_sum(a, target):
+def best_sum(a, target):
     def solve(target):
         if target == 0:
             return []
@@ -22,5 +22,5 @@ def can_sum(a, target):
     return solve(target)
 
 
-res = can_sum(a, target)
+res = best_sum(a, target)
 print(f'res -> {res}')
