@@ -1,9 +1,3 @@
-import math
-
-import snoop
-
-
-@snoop
 def max_subarray_k(nums, k):
     i = j = 0
     g_r = []
@@ -17,10 +11,10 @@ def max_subarray_k(nums, k):
         c_r.append(nums[j])
 
         # moving window
-        if j-i+1 < k:
+        if j - i + 1 < k:
             j += 1
 
-        elif j-i+1 == k:
+        elif j - i + 1 == k:
 
             # * Max element is always present at the start so we can append this to global result.
             g_r.append(c_r[0])
