@@ -9,19 +9,20 @@ def min_size_subarr_sum(target, nums):
     while j < len(nums):
         c_r += nums[j]
 
-        if c_r >= target:
+        if c_r == target:
+            g_r = min(j - i + 1, g_r)
+
+        elif c_r > target:
             while c_r > target:
-                g_r = min(j-i+1, g_r)
                 c_r -= nums[i]
                 i += 1
 
             if c_r == target:
-                c_r -= nums[j]
-                continue
+                g_r = min(j - i + 1, g_r)
 
         j += 1
 
     return g_r
 
 
-print(min_size_subarr_sum(11,  [1, 2, 3, 4, 5]))
+print(min_size_subarr_sum(9, [1, 2, 3, 4, 5]))

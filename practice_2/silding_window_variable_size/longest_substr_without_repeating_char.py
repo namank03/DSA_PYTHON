@@ -15,13 +15,13 @@ def longest_substr_without_repeating_char(s):
         # j += 1
 
         # If the condition is hit update the global result
-        if len(c_r) == j-i+1:
-            g_r = max(g_r, sum(c_r.values()))
+        if len(c_r) == j - i + 1:
+            g_r = max(g_r, j - i + 1)
             j += 1
 
-        elif len(c_r) < j-i+1:
+        elif len(c_r) < j - i + 1:
             # Making window valid again by shrinking the size from the left
-            while len(c_r) < j-i+1:
+            while len(c_r) < j - i + 1:
                 c_r[s[i]] -= 1
                 if c_r[s[i]] == 0:
                     del c_r[s[i]]
