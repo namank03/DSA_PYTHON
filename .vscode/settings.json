@@ -10,4 +10,16 @@
     "cSpell.words": [
         "tempc"
     ],
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "database": "naman",
+            "username": "naman",
+            "name": "test-db",
+            "password": ""
+        }
+    ],
 }
