@@ -1,70 +1,50 @@
-import math
-
-
-def functionName(arr, windowSize):
-    #  intitalizing the start and end of the window.
-    i = j = 0
-
-    # This the current window result and the global/final result
-    global_result = 0
-    current_window_result = 0
-
-    # guard condition to prevent window from overflowing
-    while j < len(arr):
-        # Some Initial Cal here (Cal on the right side of the window).
-
-        # Making the window of size k.
-        if j - i + 1 < windowSize:
-            j += 1
-
-        elif j - i + 1 == windowSize:
-            #! Some other cal here. (Cal on the left side of the window).
-
-            #! Move the window
+def merge(arr, L, R):
+    i = j = k = 0
+    while i < len(L) and j < len(R):
+        if L[i] < R[j]:
+            arr[k] = L[i]
             i += 1
+        else:
+            arr[k] = R[j]
             j += 1
+        k += 1
 
-    return global_result
+    while i < len(L):
+        arr[k] = L[i]
+        i += 1
+        k += 1
+
+    while j < len(R):
+        arr[k] = R[j]
+        j += 1
+        k += 1
 
 
-def functionName(arr, target):
-    # Initialize the start and end.
-    i = j = 0
+from visualiser.visualiser import Visualiser as vs
 
-    # Initialize the running target and mix/min with the required values
-    running_target = 0
-    max_min_window_size = 0
 
-    while j < len(arr):
-        # Doing normal calculations as we used to do earlier in fixed window size.
+@vs(node_properties_kwargs={"shape": "record", "color": "#f57542", "style": "filled", "fillcolor": "grey"})
 
-        # increasing window size. The below condtion can be replaced with the required cond to move the window
-        if running_target < target:
-            j += 1
 
-        # if the condition is hit then we do our calculations and save the window size.
-        elif running_target == target:
 
-            j += 1
+def mergeSort(arr):
+    if len(arr) <= 1:
+        return
 
-        # else we move i till the running sum becomes valid again.
-        elif running_target > target:
-            while running_target > target:
-                # Some cal on i to make window valid
+    mid = len(arr) // 2
+    L = arr[:mid]
+    R = arr[mid:]
+    mergeSort(L)
+    mergeSort(R)
+    merge(arr, L, R)
 
-                i += 1
 
-            # Guard condition
-            if running_target == target:
-                # Some guard cond to remove current j calculations
+# Code to print the list
 
-                continue
 
-            # # Alternative to above guard condition to check the potential answer while shrinking the window size.
-            # if running_sum == target_sum:
-            #     print(arr[i:j+1])
-            #     max_window_size = max(j-i+1, max_window_size)
-
-            j += 1
-
-    return max_min_window_size
+# Driver Code
+if __name__ == '__main__':
+    arr = [12, 11, 13, 5, 6, 7]
+    mergeSort(arr)
+    print(f'arr -> {arr}')
+    vs.make_animation("images/merge.gif", delay=2)
