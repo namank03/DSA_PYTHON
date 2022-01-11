@@ -42,7 +42,8 @@ def findWords(board, words):
         trie.insert(w)
     for i in range(len(board)):
         for j in range(len(board[0])):
-            dfs(board, node, i, j, res)
+            if board[i][j] in node.children:
+                dfs(board, node, i, j, res)
     return res
 
 
