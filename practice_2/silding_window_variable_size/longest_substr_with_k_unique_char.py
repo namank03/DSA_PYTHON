@@ -1,7 +1,3 @@
-import snoop
-
-
-@snoop
 def longest_substr_with_k_unique(s, k):
     i = j = 0
 

@@ -13,7 +13,7 @@ const solve = (root, res) => {
 };
 
 const diameterOfTree = (root) => {
-  let res = -100;
+  let res = Number.NEGATIVE_INFINITY;
   solve(root, res);
   return res;
 };
