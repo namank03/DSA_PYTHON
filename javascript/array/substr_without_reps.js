@@ -7,7 +7,6 @@ const solve = (s) => {
     map[s[j]] = map[s[j]] ? map[s[j]] + 1 : 1;
     if (Object.keys(map).length === j - i + 1) {
       maxSize = Math.max(maxSize, j - i + 1);
-      console.log(`s.slice(i,j+1)`, s.slice(i, j + 1));
     } else if (Object.keys(map).length < j - i + 1) {
       while (Object.keys(map).length < j - i + 1) {
         map[s[i]] = map[s[i]] === 0 ? delete map[s[i]] : map[s[i]] - 1;
