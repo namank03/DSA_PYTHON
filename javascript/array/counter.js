@@ -1,4 +1,4 @@
-s = "naman";
+let se = "naman";
 
 const counter = (s, sMap = {}) => {
   [...s].map((el) => {
@@ -7,5 +7,5 @@ const counter = (s, sMap = {}) => {
   return sMap;
 };
 
-const res = counter(s);
+const res = counter(se);
 console.log(`res`, res);
