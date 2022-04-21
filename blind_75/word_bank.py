@@ -1,5 +1,6 @@
-
-def word_bank(target, bank, op, memo={}):
+def word_bank(target, bank, op, memo=None):
+    if memo is None:
+        memo = {}
     if op == target:
         return True
 
@@ -13,4 +14,4 @@ def word_bank(target, bank, op, memo={}):
     return memo[op]
 
 
-print(word_bank("leetcode",  ["leet", "code"], ""))
+print(word_bank("leetcode", ["leet", "code"], ""))

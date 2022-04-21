@@ -22,7 +22,7 @@ def solution(s):
     return ans
 
 
-s = "babad"
+s = "bababh"
 
 res = solution(s)
 print(f'res -> {res}')

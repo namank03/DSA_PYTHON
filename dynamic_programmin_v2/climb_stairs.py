@@ -1,4 +1,3 @@
-
 # def climb_stairs(n, memo={}):
 #     if n < 0:
 #         return False
@@ -15,7 +14,9 @@
 
 
 class Solution:
-    def solve(self, n, memo={}):
+    def solve(self, n, memo=None):
+        if memo is None:
+            memo = {}
         if n < 0:
             return False
         if n == 0:
@@ -23,7 +24,7 @@ class Solution:
         if n in memo:
             return memo[n]
 
-        memo[n] = self.solve(n-1) + self.solve(n-2)
+        memo[n] = self.solve(n - 1) + self.solve(n - 2)
 
         return memo[n]
 

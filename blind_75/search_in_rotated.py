@@ -1,5 +1,3 @@
-
-
 def search_in_roteted_arr(nums, target):
     left, right = 0, len(nums) - 1
 
@@ -30,11 +28,7 @@ def search_in_roteted_arr(nums, target):
         else:
             right = mid
 
-    if found:
-        return (mid + rotation) % len(nums)
-
-    else:
-        return -1
+    return (mid + rotation) % len(nums) if found else -1
 
 
 print(search_in_roteted_arr([1], 1))
