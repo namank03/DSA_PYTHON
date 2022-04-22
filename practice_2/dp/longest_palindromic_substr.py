@@ -17,5 +17,5 @@ def longest_palidromic_substr(s):
     return max_len
 
 
-res2 = longest_palidromic_substr("cbbd")
+res2 = longest_palidromic_substr("cxbbxd")
 print(f'res -> {res2}')

@@ -35,8 +35,7 @@ def can_reach_target(grid, sx, sy, dx, dy, visited=set()):
         ):
             sx += mx
             sy += my
-        tmp_ans = can_reach_target(grid, sx, sy, dx, dy, visited)
-        if tmp_ans:
+        if tmp_ans := can_reach_target(grid, sx, sy, dx, dy, visited):
             tmp_ans += 1
             min_ans = min(min_ans, tmp_ans)
     return min_ans

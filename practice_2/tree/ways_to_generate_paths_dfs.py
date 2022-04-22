@@ -25,7 +25,9 @@ c.right = f
 
 
 def lca(root, node1, node2):
-    def get_path(root, node, path=[]):
+    def get_path(root, node, path=None):
+        if path is None:
+            path = []
         if root:
             if root == node:
                 return path + [root]
@@ -48,8 +50,7 @@ def lca2(root, node1, node2):
         if root:
             if root == node:
                 return [root]
-            res = get_path(root.left, node) or get_path(root.right, node)
-            if res:
+            if res := get_path(root.left, node) or get_path(root.right, node):
                 return [root] + res
 
     a = get_path(root, node1)

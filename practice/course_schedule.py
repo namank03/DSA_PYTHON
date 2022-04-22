@@ -2,8 +2,8 @@ numCourses = 2
 prerequisites = [[1, 0], [0, 1]]
 
 
-def canFinish(n, prerequisites):
-    G = [[] for i in range(n)]
+def can_finish(n, prerequisites):
+    G = [[] for _ in range(n)]
     degree = [0] * n
     for j, i in prerequisites:
         G[i].append(j)
@@ -17,4 +17,4 @@ def canFinish(n, prerequisites):
     return len(bfs) == n
 
 
-canFinish(numCourses, prerequisites)
+can_finish(numCourses, prerequisites)
