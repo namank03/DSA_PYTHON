@@ -70,3 +70,28 @@ def main(arr, target):
 
 res = main([10, 7, 2, 1, 9, 3], 5)
 print(f'All res -> {res}')
+
+
+# kadanes algo
+# besttime to buy/sell
+
+# arr = [10, 2, 1, 9, 3]
+# max - profit -> 8
+
+
+def max_profit(arr):
+
+    if not arr:
+        return 0
+
+    buy_price, cur_profit, max_profit = arr[0], 0, 0
+    for i in arr[1:]:
+        cur_profit = i - buy_price
+        buy_price = min(buy_price, i)
+        max_profit = max(max_profit, cur_profit)
+
+    return max_profit
+
+
+res = max_profit([100, 50, 2, 1, 9, 30, 300])
+print(f'Profit res -> {res}')
