@@ -1,21 +1,19 @@
-# Author: Bishal Sarang
-# Import Visualiser class from module visualiser
-from visualiser.visualiser import Visualiser as vs
+def test(arr):
+    arr.sort()
+    i, j = 0, len(arr) - 1
+    count = 0
+    while i < j:
+        if (arr[i] + arr[j]) % 60 == 0:
+            count += 1
+        if (arr[i + 1] + arr[j]) % 60 == 0:
+            count += 1
+        if (arr[i] + arr[j - 1]) % 60 == 0:
+            count += 1
+        i += 1
+        j -= 1
+    return count
 
 
-@vs(node_properties_kwargs={"shape": "record", "color": "#f57542", "style": "filled", "fillcolor": "grey"})
-def fib(n):
-    if n <= 1:
-        return n
-    return fib(n=n - 1) + fib(n=n - 2)
-
-
-def main():
-    # Call function
-    print(fib(n=6))
-    # Save recursion tree to a file
-    vs.make_animation("fibonacci.gif", delay=2)
-
-
-if __name__ == "__main__":
-    main()
+arr = [30, 90, 60, 20, 30]
+res = test(arr)
+print(f'res -> {res}')
