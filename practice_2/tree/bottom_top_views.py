@@ -71,7 +71,6 @@ def bottomView(root):
     if not root: return
     width(tree, 0, minMax)
     w = minMax[1] - minMax[0] + 1
-    print(w)
     ans = [0] * w
     queue = [(tree, abs(minMax[0]))]
     while queue:
